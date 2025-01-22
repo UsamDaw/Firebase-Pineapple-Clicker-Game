@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker Game</title>
+    <style>
+        body {
+            height: 100vh;
+            padding: 0;
+            margin: 0;
+            background-image: linear-gradient(to top, #fa709a 0%, #fee140 100%);        
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+    </div>
+</body>
+
+<script type="module" src="javascript.js">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAPfVGr4tvWz4hdIrehU1rkpP6GD_kflGg",
+      authDomain: "game2-aa892.firebaseapp.com",
+      projectId: "game2-aa892",
+      storageBucket: "game2-aa892.firebasestorage.app",
+      messagingSenderId: "861332047394",
+      appId: "1:861332047394:web:c11fd741279d17ba682c7b"
+    };
+  
+    const app = initializeApp(firebaseConfig);
+  </script>
+</html>
