@@ -10,15 +10,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Butcherman&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
     <style>
         body {
-            height: 100vh;
+            min-height: 100vh;
             padding: 0;
             margin: 0;
-            background-image: linear-gradient(to top, #fa709a 0%, #fee140 100%);       
+            background-image: linear-gradient(to top, #fa709a 0%, #fee140 100%);
             font-family: "Orbitron", serif;
-            font-optical-sizing: auto;
-            font-style: normal; 
-            margin-top: 120px;
+            font-style: normal;
             overflow: hidden;
+            margin-top: 120px;
+            font-optical-sizing: auto;
         }
 
         .container_GUI {
@@ -27,10 +27,9 @@
             flex-direction: column;
             background-color: #fae25d;
             padding: 40px;
-            width: 20%;
+            width: 25%;
             margin: auto;
             border-radius: 15px;
-            position: relative;
         }
 
         .container_GUI label {
@@ -40,7 +39,7 @@
             position: relative;
             font-weight: 600;
         }
-        
+
         input {
             width: 20rem;
             height: 3.3vb;
@@ -49,8 +48,8 @@
             outline: none;
             position: relative;
             font-family: "Orbitron", serif;
+            font-style: normal;
             font-optical-sizing: auto;
-            font-style: normal; 
         }
 
         input::placeholder {
@@ -58,8 +57,8 @@
             font-size: 12px;
             position: absolute;
             font-family: "Orbitron", serif;
+            font-style: normal;
             font-optical-sizing: auto;
-            font-style: normal; 
         }
 
         h2 {
@@ -67,17 +66,28 @@
             font-size: 30px;
         }
 
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         button {
             padding: 18px 80px 18px;
             border-radius: 15px;
             background-color: white;
             border: 2px solid black;
-            margin: auto;
+            margin-top: auto;
             font-family: "Orbitron", serif;
-            font-optical-sizing: auto;
-            font-style: normal; 
+            font-style: normal;
             font-weight: 600;
             transition: 0.55s;
+            font-optical-sizing: auto;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 20px;
         }
 
         button:hover {
@@ -87,11 +97,6 @@
             color: #f77a9f;
         }
 
-        p {
-            margin: auto;
-            margin-top: 20px;
-        }
-
         a {
             color: #c05475;
         }
@@ -99,48 +104,118 @@
         a:hover {
             color: #f77a9f;
         }
-
+        
+        .hider {
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <form method="post" action="">
-        <div class="container_GUI">
+    <div class="container_GUI">
+        <div id="signUp_form">
             <h2>Sign Up</h2>
-            <div id="block1">
-                <label>Username</label>
-                <input id="u_Username" type="text" placeholder="Username">
-            </div>
-            <div id="block2">
-                <label>Email</label>
-                <input id="u_Email" type="email" placeholder="Email">
-            </div>
-            <div id="block3">
-                <label for="">Password</label>
-                <input id="u_Password" type="password" placeholder="Password">
-            </div>
-            <div id="block4">
-                <label for="">Re-enter Password</label>
-                <input id="u_ReenterPassowrd" type="password" placeholder="Re-enter Password">
-            </div>
-            <br><br>
-            <button id="sumbitUser">Sign Up</button>
-            <p>Already signed up? <span><a href=""><strong>Login!</strong></a></span></p>
+            <form method="post" action="">
+                <div id="block1">
+                    <label>Username</label>
+                    <input id="u_Username" type="text" placeholder="Username">
+                </div>
+                <div id="block2">
+                    <label>Email</label>
+                    <input id="u_Email" type="email" placeholder="Email">
+                </div>
+                <div id="block3">
+                    <label>Password</label>
+                    <input id="u_Password" type="password" placeholder="Password">
+                </div>
+                <div id="block4">
+                    <label>Re-enter Password</label>
+                    <input id="u_ReenterPassword" type="password" placeholder="Re-enter Password">
+                </div>
+                <br><br>
+                <button id="submitUser">Sign Up</button>
+                <p>Already signed up? <span><a href="#" onclick="toggleForms();"><strong>Login!</strong></a></span></p>
+            </form>
         </div>
-    </form>
+        <div id="login_form" class="hider">
+            <h2>Login</h2>
+            <form method="post" action="">
+                <div id="block1">
+                    <label>Email</label>
+                    <input id="l_Username" type="text" placeholder="Your Email">
+                </div>
+                <div id="block2">
+                    <label>Password</label>
+                    <input id="l_Password" type="password" placeholder="Your Password">
+                </div>
+                <br><br>
+                <button id="loginUser">Login</button>
+                <p>Not signed up? <span><a href="#" onclick="toggleForms();"><strong>Sign Up!</strong></a></span></p>
+            </form>
+        </div>
+    </div>
+    
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAPfVGr4tvWz4hdIrehU1rkpP6GD_kflGg",
+            authDomain: "game2-aa892.firebaseapp.com",
+            projectId: "game2-aa892",
+            storageBucket: "game2-aa892.firebasestorage.app",
+            messagingSenderId: "861332047394",
+            appId: "1:861332047394:web:c11fd741279d17ba682c7b"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        function toggleForms() {
+            const signUp_form = document.getElementById('signUp_form');
+            const login_form = document.getElementById('login_form');
+            signUp_form.classList.toggle('hider');
+            login_form.classList.toggle('hider');
+        }
+
+        document.getElementById('submitUser').addEventListener('click', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('u_Email').value;
+            const password = document.getElementById('u_Password').value;
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    alert('User signed up successfully!');
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    alert(`Error: ${errorMessage}`);
+                });
+        });
+
+        document.getElementById('loginUser').addEventListener('click', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('l_Username').value;
+            const password = document.getElementById('l_Password').value;
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    alert('User logged in successfully!');
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    alert(`Error: ${errorMessage}`);
+                });
+        });
+
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', (event) => {
+                if (event.target.closest('a')) {
+                    toggleForms();
+                }
+            });
+        });
+    </script>
 </body>
-
-<script type="module" src="javascript.js">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyAPfVGr4tvWz4hdIrehU1rkpP6GD_kflGg",
-      authDomain: "game2-aa892.firebaseapp.com",
-      projectId: "game2-aa892",
-      storageBucket: "game2-aa892.firebasestorage.app",
-      messagingSenderId: "861332047394",
-      appId: "1:861332047394:web:c11fd741279d17ba682c7b"
-    };
-  
-    const app = initializeApp(firebaseConfig);
-  </script>
 </html>

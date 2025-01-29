@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pineapple Clicker Game</title>
+    <link rel="icon" href="output-onlinepngtools (1).png" type="x-icon"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Butcherman&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            position: relative;
+            min-height: 100vh;
+            background-image: linear-gradient(to top, #fa709a 0%, #fee140 100%);
+            font-family: "Orbitron", serif;
+            font-style: normal;
+            overflow: hidden;
+        }
+
+        .palmTrees img {
+            position: fixed;
+            width: 54vw; 
+            height: auto; 
+            opacity: 70%;
+            pointer-events: none;
+        }
+
+        #palmTree1 {
+            left: -16vw; 
+            bottom: 0;
+        }
+
+        #palmTree2 {
+            right: -16vw;
+            bottom: 0;
+            -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+        }
+
+        #buttonPineapple {
+            position: fixed;
+            user-select: none;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 12vw; 
+            height: auto;
+            cursor: pointer;
+            transition: 0.5s;
+            -webkit-user-drag: none;
+            -moz-user-select: none;
+        }
+
+        #buttonPineapple:hover {
+            width: 13vw;
+        }
+
+        h1 {
+            display: flex;
+            justify-content: center;
+            font-size: 3vw;
+            bottom: 0;
+            color: #ffffff;
+            user-select: none;
+        }
+
+        #buttonPineapple:active {
+            bottom: 0;
+            width: 10vw;
+            filter: brightness(125%);
+            
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Points:<span id="pointies">&nbsp;0</span></h1>
+    </header>
+    <img src="images-removebg-preview.png" id="buttonPineapple" alt="">
+    <div class="palmTrees">
+        <img src="pngimg.com - palm_tree_PNG93288.png" id="palmTree1" alt="">
+        <img src="pngimg.com - palm_tree_PNG93288.png" id="palmTree2" alt="">
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAPfVGr4tvWz4hdIrehU1rkpP6GD_kflGg",
+            authDomain: "game2-aa892.firebaseapp.com",
+            projectId: "game2-aa892",
+            storageBucket: "game2-aa892.firebasestorage.app",
+            messagingSenderId: "861332047394",
+            appId: "1:861332047394:web:c11fd741279d17ba682c7b"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        document.getElementById('buttonPineapple')
+    </script>
+</body>
+</html>
