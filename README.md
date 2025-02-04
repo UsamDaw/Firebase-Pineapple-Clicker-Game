@@ -1,10 +1,8 @@
 # Pineapple Clicker Game
-
 <br>
 
 ### Introduksjon
 Dette er en klikkerspill-app hvor brukeren kan samle poeng ved å klikke på en ananas. Poengene blir lagret i Firebase, og brukeren kan logge inn for å holde styr på sin fremgang. Spillet er responsivt og fungerer godt på forskjellige skjermstørrelser.
-
 <br>
 
 ### Funksjoner
@@ -14,7 +12,6 @@ Dette er en klikkerspill-app hvor brukeren kan samle poeng ved å klikke på en 
 - Bruk av "vw" på game.html sikrer at elementer holder en stabil størrelse, uansett zoomnivå.
 - Knappene reagerer på hover og klikk, spesielt "buttonPineapple" som gir en tilfredsstillende klikkrespons.
 - Brukervennlige tilbakemeldinger for feil og suksessmeldinger.
-
 <br>
 
 ### Teknologier og programvarer brukt
