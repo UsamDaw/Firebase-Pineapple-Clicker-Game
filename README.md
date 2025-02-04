@@ -6,10 +6,10 @@ Dette er en klikkerspill-app hvor brukeren kan samle poeng ved å klikke på en 
 
 
 ### Funksjoner
-- Brukere kan registrere seg og logge inn med sin e-post.
+- Brukere kan registrere seg og logge inn med eget sin e-post.
 - Poeng blir lagret i Firebase og koblet til brukerens konto.
-- Spill-elementer er tilpasset for å fungere godt på forskjellige skjermstørrelser.
-- Bruk av "vw" på game.html sikrer at elementer holder en stabil størrelse, uansett zoomnivå.
+- game.html elementer er tilpasset for å fungere godt på forskjellige skjermstørrelser.
+- Bruk av "vw" på game.html som gjør at elementer holder en stabil størrelse, uansett zoomnivå.
 - Knappene reagerer på hover og klikk, spesielt "buttonPineapple" som gir en tilfredsstillende klikkrespons.
 - Brukervennlige tilbakemeldinger for feil og suksessmeldinger.
 
