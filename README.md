@@ -54,11 +54,9 @@ Dette er en klikkerspill-app hvor brukeren kan samle poeng ved å klikke på en 
 
 ### Stolthet
 Jeg er stolt av at jeg har laget all CSS-stylingen for hånd uten hjelp fra AI eller YouTube-tutorials. Det var mye arbeid, men jeg lærte masse om styling og responsivt design. Derimot brukte jeg AI til å hjelpe med JavaScript-koden fordi den var rotete og vanskelig å feilsøke alene.
-
 Jeg er også fornøyd med at jeg modifiserte og tilpasset to bilder (ananas-knappen og palmtrærne), som passet veldig bra med bakgrunnsfargene.
 
 
 ### Konklusjon
 Dette prosjektet har vært en stor læringsopplevelse. Jeg er fornøyd med hvordan game.html håndterer skjermstørrelser med 'vw' mens index.html ikke fungerte like bra med det. Spillopplevelsen er jevn, og brukeren får en god respons på klikk og hover-effekter.
-
 Selv om Firebase integrasjonen var et utfordring, er jeg fornøyd med sluttresultatet og hvordan jeg har klart å løse de fleste problemene underveis. 👍
