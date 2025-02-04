@@ -64,5 +64,5 @@ Dette prosjektet har vært en stor læringsopplevelse. Jeg er fornøyd med hvord
 Selv om Firebase integrasjonen var et utfordring, er jeg fornøyd med sluttresultatet og hvordan jeg har klart å løse de fleste problemene underveis. 👍
 
 
-### Øyeblikksbilder
+### Øyeblikksbilder:
 ![](https://github.com/UsamDaw/Firebase-Pineapple-Clicker-Game-Project/blob/main/Screenshot%202025-02-04%20083945.png) ![](https://github.com/UsamDaw/Firebase-Pineapple-Clicker-Game-Project/blob/main/Screenshot%202025-02-04%20083920.png) ![](https://github.com/UsamDaw/Firebase-Pineapple-Clicker-Game-Project/blob/main/Screenshot%202025-02-04%20084141.png) 
