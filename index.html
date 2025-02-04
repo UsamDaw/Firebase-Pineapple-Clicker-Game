@@ -26,23 +26,25 @@
             justify-content: center;
             flex-direction: column;
             background-color: #fae25d;
-            padding: 40px;
-            width: 25%;
+            padding: 3vw;
+            width: 27vw;
             margin: auto;
             border-radius: 15px;
+            bottom: 0;
         }
 
         .container_GUI label {
             display: flex;
-            margin-top: 7%;
-            margin-bottom: 2%;
+            margin-top: 2vw;
+            margin-bottom: 1vw;
             position: relative;
             font-weight: 600;
+            bottom: 0;
         }
 
         input {
-            width: 20rem;
-            height: 3.3vb;
+            width: 23vw;
+            height: 2vw;
             border: none;
             border-radius: 3px;
             outline: none;
@@ -61,8 +63,13 @@
             font-optical-sizing: auto;
         }
 
-        h2 {
-            margin-left: 4.5cap;
+        #out {
+            margin-left: 7vw;
+            font-size: 30px;
+        }
+
+        #in {
+            margin-left: 8vw;
             font-size: 30px;
         }
 
@@ -113,7 +120,7 @@
 <body>
     <div class="container_GUI">
         <div id="signUp_form">
-            <h2>Sign Up</h2>
+            <h2 id="out">Sign Up</h2>
             <form method="post" action="">
                 <div id="block1">
                     <label>Username</label>
@@ -127,17 +134,13 @@
                     <label>Password</label>
                     <input id="u_Password" type="password" placeholder="Password">
                 </div>
-                <div id="block4">
-                    <label>Re-enter Password</label>
-                    <input id="u_ReenterPassword" type="password" placeholder="Re-enter Password">
-                </div>
                 <br><br>
                 <button id="submitUser">Sign Up</button>
                 <p>Already signed up? <span><a href="#" onclick="toggleForms();"><strong>Login!</strong></a></span></p>
             </form>
         </div>
         <div id="login_form" class="hider">
-            <h2>Login</h2>
+            <h2 id="in">Login</h2>
             <form method="post" action="">
                 <div id="block1">
                     <label>Email</label>
@@ -157,7 +160,8 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
         import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
-
+        import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
+        
         const firebaseConfig = {
             apiKey: "AIzaSyAPfVGr4tvWz4hdIrehU1rkpP6GD_kflGg",
             authDomain: "game2-aa892.firebaseapp.com",
@@ -166,17 +170,18 @@
             messagingSenderId: "861332047394",
             appId: "1:861332047394:web:c11fd741279d17ba682c7b"
         };
-
+        
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
-
+        const db = getFirestore(app);
+        
         function toggleForms() {
             const signUp_form = document.getElementById('signUp_form');
             const login_form = document.getElementById('login_form');
             signUp_form.classList.toggle('hider');
             login_form.classList.toggle('hider');
         }
-
+        
         document.getElementById('submitUser').addEventListener('click', (e) => {
             e.preventDefault();
             const email = document.getElementById('u_Email').value;
@@ -184,7 +189,15 @@
             createUserWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
                     const user = userCredential.user;
-                    alert('User signed up successfully!');
+                    const userRef = doc(db, "users", user.uid);
+                    setDoc(userRef, {
+                        email: email,
+                        points: 0
+                    }).then(() => {
+                        alert('User signed up successfully!');
+                    }).catch((error) => {
+                        alert(`Error storing the user data: ${error.message}`);
+                    });
                 })
                 .catch((error) => {
                     const errorCode = error.code;
@@ -192,7 +205,7 @@
                     alert(`Error: ${errorMessage}`);
                 });
         });
-
+        
         document.getElementById('loginUser').addEventListener('click', (e) => {
             e.preventDefault();
             const email = document.getElementById('l_Username').value;
@@ -201,6 +214,7 @@
                 .then((userCredential) => {
                     const user = userCredential.user;
                     alert('User logged in successfully!');
+                    window.location.href = `game.html?email=${encodeURIComponent(email)}`;
                 })
                 .catch((error) => {
                     const errorCode = error.code;
@@ -208,7 +222,7 @@
                     alert(`Error: ${errorMessage}`);
                 });
         });
-
+        
         document.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', (event) => {
                 if (event.target.closest('a')) {
