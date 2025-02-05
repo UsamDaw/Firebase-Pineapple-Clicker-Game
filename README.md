@@ -25,6 +25,8 @@ Dette er en klikkerspill-app hvor brukeren kan samle poeng ved å klikke på en 
 - En moderne nettleser (Chrome, Firefox, Edge, Safari, etc)
 - Ditt eget Firebase konto for backend tjenester
 
+
+
 ### Konfigurasjon:
 #### Opprett en Firebase prosjekt og aktiver:
 - Authentication (E-post/passord innlogging)
