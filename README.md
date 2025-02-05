@@ -63,3 +63,6 @@ Jeg er også fornøyd med at jeg modifiserte og tilpasset to bilder (ananas-knap
 Dette prosjektet har vært en stor læringsopplevelse. Jeg er fornøyd med hvordan game.html håndterer skjermstørrelser med 'vw' mens index.html ikke fungerte like bra med det. Spillopplevelsen er jevn, og brukeren får en god respons på klikk og hover-effekter.
 
 Selv om Firebase integrasjonen var et utfordring, er jeg fornøyd med sluttresultatet og hvordan jeg har klart å løse de fleste problemene underveis. 👍
+
+### Øyeblikksbilder:
+ ![](https://github.com/UsamDaw/Firebase-Pineapple-Clicker-Game/blob/main/Screenshot%202025-02-05%20134034.png) ![](https://github.com/UsamDaw/Firebase-Pineapple-Clicker-Game/blob/main/Screenshot%202025-02-05%20134107.png)
