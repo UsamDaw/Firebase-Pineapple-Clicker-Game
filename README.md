@@ -3,7 +3,7 @@
 ### Introduksjon
 Dette er en klikkerspill-app hvor brukeren kan samle poeng ved å klikke på en ananas. Poengene blir lagret i Firebase, og brukeren kan logge inn for å holde styr på sin fremgang. Spillet er responsivt og fungerer godt på forskjellige skjermstørrelser.
 
-
+<br/>
 ### Funksjoner
 - Brukere kan registrere seg og logge inn med sin e-post.
 - Poeng blir lagret i Firebase og koblet til brukerens konto.
